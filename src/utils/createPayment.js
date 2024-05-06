@@ -1,6 +1,10 @@
+import { proxyUrl } from './proxyUrl';
+
 const createPayment = async (accessToken, formData) => {
+  const url = proxyUrl('https://fib.stage.fib.iq/protected/v1/payments');
+
   try {
-    const paymentResponse = await fetch('https://fib.stage.fib.iq/protected/v1/payments', {
+    const paymentResponse = await fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -22,8 +26,7 @@ const createPayment = async (accessToken, formData) => {
       throw new Error(`Error creating payment: ${paymentResponse.status} - ${paymentResponse.statusText}`);
     }
 
-    const paymentData = await paymentResponse.json();
-    return paymentData.id;
+    return await paymentResponse.json();
   } catch (error) {
     console.error('Error creating payment:', error);
     return null;
