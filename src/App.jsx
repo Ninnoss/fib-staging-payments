@@ -3,7 +3,7 @@ import Layout from '../Layout';
 import './App.css';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
-import PaymentCard from './pages/Payment';
+import PaymentDetails from './pages/PaymentDetails';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           />
           <Route
             path="/payment"
-            element={<PaymentCard />}
+            element={<PaymentDetails />}
           />
           <Route
             path="*"

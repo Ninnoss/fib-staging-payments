@@ -9,6 +9,7 @@ const Home = () => {
   const accessToken = useTokenRefresh();
   const navigate = useNavigate();
   const [paymentData, setPaymentData] = useState(null);
+  const [showPaymentForm, setShowPaymentForm] = useState(false);
 
   const [formData, setFormData] = useState({
     amount: '500',
@@ -18,12 +19,12 @@ const Home = () => {
     refundableFor: 'PT48H',
     statusCallbackUrl: 'https://URL_TO_UPDATE_YOUR_PAYMENT_STATUS',
   });
-  const [showPaymentForm, setShowPaymentForm] = useState(false);
 
   const handleCreatePayment = async () => {
     const payment = await createPayment(accessToken, formData);
     setPaymentData(payment);
     navigate('/payment', { state: { paymentData: payment } });
+    console.log(payment);
   };
 
   console.log(paymentData);

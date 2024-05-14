@@ -6,7 +6,8 @@ export default {
       colors: {
         primaryGreen: '#56B89D',
         darkerGreen: '#139E9E',
-        darkBlue: '#041C2D',
+        darkerBlue: '#041C2D',
+        darkBlue: '#014368',
         highlightBlack: '#202020',
         highlightGrey: '#FAFBFA',
       },

@@ -14,12 +14,11 @@ const Navbar = () => {
   return (
     <>
       <section className="hidden md:flex justify-between items-center p-4 px-16 bg-primaryGreen">
-        <Link to="/">
+        <Link to="/" className='flex items-center gap-x-4'>
           <Logo />
+          <h1 className="text-3xl text-white font-semibold uppercase hidden lg:block">Staging Area</h1>
         </Link>
-        <div>
-          <h1 className="text-2xl text-white font-semibold">FIB Staging Area</h1>
-        </div>
+        <div></div>
         <ul className="flex justify-center space-x-4">
           <li>
             <Link
