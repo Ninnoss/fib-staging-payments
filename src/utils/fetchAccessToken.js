@@ -1,14 +1,16 @@
 const fetchAccessToken = async () => {
   const clientId = import.meta.env.VITE_CLIENT_ID;
   const clientSecret = import.meta.env.VITE_CLIENT_SECRET;
-  const tokenURL = import.meta.env.VITE_TOKEN_URL;
+  const tokenURL = 'https://fib.stage.fib.iq/auth/realms/fib-online-shop/protocol/openid-connect/token';
 
   const tokenResponse = await fetch(tokenURL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
-    body: `grant_type=client_credentials&client_id=${encodeURIComponent(clientId)}&client_secret=${encodeURIComponent(clientSecret)}`,
+    body: `grant_type=client_credentials&client_id=${encodeURIComponent(
+      clientId
+    )}&client_secret=${encodeURIComponent(clientSecret)}`,
   });
 
   if (!tokenResponse.ok) {
