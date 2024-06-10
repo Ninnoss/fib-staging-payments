@@ -1,29 +1,49 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import PaymentStatus from '../components/PaymentStatus';
 import useTokenRefresh from '../hooks/useTokenRefresh';
 import { proxyUrl } from '../utils/proxyUrl';
 
 const PaymentDetails = () => {
+  const { id: paymentId } = useParams();
   const accessToken = useTokenRefresh();
-  const location = useLocation();
-  const paymentData = location.state?.paymentData;
-  const paymetStatusUrl = proxyUrl(
-    `https://fib.stage.fib.iq/protected/v1/payments/${paymentData.paymentId}/status`
-  );
-
+  const [paymentData, setPaymentData] = useState(null);
   const [paymentStatus, setPaymentStatus] = useState(null);
   const [showPaymentStatus, setShowPaymentStatus] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  useEffect(() => {
+    const fetchPaymentData = async () => {
+      try {
+        const response = await fetch(
+          proxyUrl(`https://fib.stage.fib.iq/protected/v1/payments/${paymentId}`),
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        );
+        const data = await response.json();
+        setPaymentData(data);
+      } catch (error) {
+        console.error('Error fetching payment data:', error);
+      }
+    };
+
+    fetchPaymentData();
+  }, [paymentId, accessToken]);
+
   const fetchPaymentStatus = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch(paymetStatusUrl, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      });
+      const response = await fetch(
+        proxyUrl(`https://fib.stage.fib.iq/protected/v1/payments/${paymentId}/status`),
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
       const statusData = await response.json();
       setPaymentStatus(statusData);
     } catch (error) {
@@ -37,6 +57,10 @@ const PaymentDetails = () => {
     setShowPaymentStatus(true);
     fetchPaymentStatus();
   };
+
+  if (!paymentData) {
+    return <p>Loading payment data...</p>;
+  }
 
   const validUntilDate = new Date(paymentData.validUntil);
   const options = { year: 'numeric', month: 'short', day: 'numeric' };

@@ -1,13 +1,13 @@
 const Logo = (props) => {
   return (
     <svg
-    width={90}
-    height={60}
+      width={90}
+      height={60}
       {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 180 80">
-      <g clip-path="url(#a)">
+      <g clipPath="url(#a)">
         <mask
           id="b"
           width="180"

@@ -1,47 +1,30 @@
-import { useState } from 'react';
-import useTokenRefresh from '../hooks/useTokenRefresh';
-import PaymentForm from '../components/PaymentForm';
-import createPayment from '../utils/createPayment';
+import { Link } from 'react-router-dom';
 import Button from '../components/Button';
-import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-  const accessToken = useTokenRefresh();
-  const navigate = useNavigate();
-  const [paymentData, setPaymentData] = useState(null);
-  const [showPaymentForm, setShowPaymentForm] = useState(false);
-
-  const [formData, setFormData] = useState({
-    amount: '500',
-    currency: 'IQD',
-    description: 'Lorem ipsum dolor sit amet.',
-    expiresIn: 'PT8H6M12.345S',
-    refundableFor: 'PT48H',
-    statusCallbackUrl: 'https://URL_TO_UPDATE_YOUR_PAYMENT_STATUS',
-  });
-
-  const handleCreatePayment = async () => {
-    const payment = await createPayment(accessToken, formData);
-    setPaymentData(payment);
-    navigate('/payment', { state: { paymentData: payment } });
-    console.log(payment);
-  };
-
-  console.log(paymentData);
   return (
-    <main className="flex justify-center items-center py-44">
-      {showPaymentForm ? (
-        <>
-          <PaymentForm
-            formData={formData}
-            setFormData={setFormData}
-            createPayment={handleCreatePayment}
-          />
-        </>
-      ) : (
-        <Button onClick={() => setShowPaymentForm(true)}>Create Payment</Button>
-      )}
-    </main>
+    <div className="flex flex-col md:flex-row items-center justify-center gap-6 min-h-screen">
+      <Link
+        to="/create-payment"
+        className="w-full md:w-auto">
+        <Button>Create Payment</Button>
+      </Link>
+      <Link
+        to="/check-payment-status"
+        className="w-full md:w-auto">
+        <Button>Check Payment Status</Button>
+      </Link>
+      <Link
+        to="/cancel-payment"
+        className="w-full md:w-auto">
+        <Button>Cancel Payment</Button>
+      </Link>
+      <Link
+        to="/refund-payment"
+        className="w-full md:w-auto">
+        <Button>Refund Payment</Button>
+      </Link>
+    </div>
   );
 };
 

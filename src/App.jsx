@@ -1,27 +1,20 @@
 import { Route, Routes } from 'react-router-dom';
 import Layout from '../Layout';
 import './App.css';
-import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import PaymentDetails from './pages/PaymentDetails';
+import Home from './pages/Home';
+import CreatePayment from './pages/CreatePayment';
 
 function App() {
   return (
     <>
       <Layout>
         <Routes>
-          <Route
-            path="/"
-            element={<Home />}
-          />
-          <Route
-            path="/payment"
-            element={<PaymentDetails />}
-          />
-          <Route
-            path="*"
-            element={<NotFound />}
-          />
+          <Route path="/" element={<Home />} />
+          <Route path="/create-payment" element={<CreatePayment />} />
+          <Route path="/payment/:id" element={<PaymentDetails />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </>
