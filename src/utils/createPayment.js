@@ -1,7 +1,5 @@
-import { proxyUrl } from './proxyUrl';
-
 const createPayment = async (accessToken, formData) => {
-  const url = proxyUrl('https://fib.stage.fib.iq/protected/v1/payments');
+  const url = 'https://fib.stage.fib.iq/protected/v1/payments';
 
   try {
     const paymentResponse = await fetch(url, {

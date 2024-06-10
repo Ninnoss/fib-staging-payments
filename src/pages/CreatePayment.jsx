@@ -19,6 +19,7 @@ const CreatePayment = () => {
   const handleCreatePayment = async () => {
     try {
       const payment = await createPayment(accessToken, formData);
+      console.log(payment);
       navigate(`/payment/${payment.paymentId}`);
       console.log(payment);
     } catch (error) {

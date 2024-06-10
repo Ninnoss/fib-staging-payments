@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import PaymentStatus from '../components/PaymentStatus';
 import useTokenRefresh from '../hooks/useTokenRefresh';
-import { proxyUrl } from '../utils/proxyUrl';
 
 const PaymentDetails = () => {
   const { id: paymentId } = useParams();
@@ -14,15 +13,13 @@ const PaymentDetails = () => {
 
   useEffect(() => {
     const fetchPaymentData = async () => {
+      console.log(paymentId);
       try {
-        const response = await fetch(
-          proxyUrl(`https://fib.stage.fib.iq/protected/v1/payments/${paymentId}`),
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
+        const response = await fetch(`https://fib.stage.fib.iq/protected/v1/payments/${paymentId}`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
         const data = await response.json();
         setPaymentData(data);
       } catch (error) {
@@ -36,14 +33,11 @@ const PaymentDetails = () => {
   const fetchPaymentStatus = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch(
-        proxyUrl(`https://fib.stage.fib.iq/protected/v1/payments/${paymentId}/status`),
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }
-      );
+      const response = await fetch(`https://fib.stage.fib.iq/protected/v1/payments/${paymentId}/status`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
       const statusData = await response.json();
       setPaymentStatus(statusData);
     } catch (error) {
