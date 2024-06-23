@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import Button from '../components/Button';
+
 const PaymentForm = ({ formData, setFormData, createPayment }) => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -10,8 +11,8 @@ const PaymentForm = ({ formData, setFormData, createPayment }) => {
   };
 
   return (
-    <div className="w-1/3">
-      <h2 className="text-lg font-bold mb-4">Payment Details</h2>
+    <div className="w-full md:w-2/3 lg:w-1/3 px-4">
+      <h1 className="text-2xl mb-10 text-center font-bold text-darkerGreen">Payment Details</h1>
       <form>
         <div className="mb-4">
           <label

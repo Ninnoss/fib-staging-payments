@@ -26,7 +26,7 @@ const CreatePayment = () => {
   };
 
   return (
-    <main className="flex justify-center items-center py-44">
+    <main className="flex justify-center items-center py-16 md:py-28">
       <PaymentForm
         formData={formData}
         setFormData={setFormData}

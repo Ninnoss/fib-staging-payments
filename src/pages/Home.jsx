@@ -3,25 +3,17 @@ import Button from '../components/Button';
 
 const Home = () => {
   return (
-    <main className="flex flex-col md:flex-row items-center justify-center gap-6 min-h-screen">
-      <Link
-        to="/create-payment"
-        className="w-full md:w-auto">
+    <main className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-6 py-16 md:py-28 lg:py-64">
+      <Link to="/create-payment">
         <Button>Create Payment</Button>
       </Link>
-      <Link
-        to="/check-payment-status"
-        className="w-full md:w-auto">
+      <Link to="/check-payment-status">
         <Button>Check Payment Status</Button>
       </Link>
-      <Link
-        to="/cancel-payment"
-        className="w-full md:w-auto">
+      <Link to="/cancel-payment">
         <Button>Cancel Payment</Button>
       </Link>
-      <Link
-        to="/refund-payment"
-        className="w-full md:w-auto">
+      <Link to="/refund-payment">
         <Button>Refund Payment</Button>
       </Link>
     </main>

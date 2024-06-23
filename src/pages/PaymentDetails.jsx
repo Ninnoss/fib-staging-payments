@@ -43,7 +43,7 @@ const PaymentDetails = () => {
   const formattedValidUntil = validUntilDate.toLocaleDateString('en-US', options);
 
   return (
-    <main className="py-24 px-4">
+    <main className="py-16 md:py-28">
       <h1 className="text-2xl mb-10 text-center font-bold text-darkerGreen">Payment Details</h1>
       <div className="max-w-lg mx-auto bg-white shadow-md rounded-lg overflow-hidden py-4">
         <div className="px-4 py-2">

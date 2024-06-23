@@ -42,11 +42,12 @@ const RefundPayment = () => {
   const messageStyle = isSuccess ? 'text-green-500' : 'text-red-500';
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center py-16 md:py-28">
+      <h1 className="text-2xl mb-10 text-center font-bold text-darkerGreen">Refund Payment</h1>
+
       <form
-        className="bg-white p-6 rounded shadow-md w-full max-w-md"
+        className="bg-white p-6 rounded shadow-md w-full max-w-sm md:max-w-md"
         onSubmit={handleRefundPayment}>
-        <h2 className="text-2xl font-bold mb-4">Refund Payment</h2>
         <div className="mb-4">
           <label
             htmlFor="paymentId"
