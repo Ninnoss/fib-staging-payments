@@ -1,34 +1,16 @@
-import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import PaymentStatus from '../components/PaymentStatus';
 import useTokenRefresh from '../hooks/useTokenRefresh';
 
 const PaymentDetails = () => {
   const { id: paymentId } = useParams();
+  const location = useLocation();
+  const paymentData = location.state?.paymentData || {};
   const accessToken = useTokenRefresh();
-  const [paymentData, setPaymentData] = useState(null);
   const [paymentStatus, setPaymentStatus] = useState(null);
   const [showPaymentStatus, setShowPaymentStatus] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    const fetchPaymentData = async () => {
-      console.log(paymentId);
-      try {
-        const response = await fetch(`https://fib.stage.fib.iq/protected/v1/payments/${paymentId}`, {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
-        const data = await response.json();
-        setPaymentData(data);
-      } catch (error) {
-        console.error('Error fetching payment data:', error);
-      }
-    };
-
-    fetchPaymentData();
-  }, [paymentId, accessToken]);
 
   const fetchPaymentStatus = async () => {
     setIsLoading(true);
@@ -84,19 +66,16 @@ const PaymentDetails = () => {
             <Link
               className="font-medium hover:font-bold duration-300"
               to={paymentData.personalAppLink}>
-              {' '}
               Personal App
             </Link>
             <Link
               className="font-medium hover:font-bold duration-300"
               to={paymentData.businessAppLink}>
-              {' '}
               Business App
             </Link>
             <Link
               className="font-medium hover:font-bold duration-300"
               to={paymentData.corporateAppLink}>
-              {' '}
               Corporate App
             </Link>
           </div>
