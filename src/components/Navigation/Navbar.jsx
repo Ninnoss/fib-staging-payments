@@ -14,7 +14,9 @@ const Navbar = () => {
   return (
     <>
       <section className="hidden md:flex justify-between items-center p-4 px-16 bg-primaryGreen">
-        <Link to="/" className='flex items-center gap-x-4'>
+        <Link
+          to="/"
+          className="flex items-center gap-x-4">
           <Logo />
           <h1 className="text-3xl text-white font-semibold uppercase hidden lg:block">Staging Area</h1>
         </Link>
@@ -36,14 +38,16 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/developers"
+              to="https://fib.iq/en/developers"
+              target="_blank"
               className="uppercase text-white hover:font-semibold">
               Developers
             </Link>
           </li>
           <li>
             <Link
-              to="/?getApp=true"
+              to="https://appcenter.ms/orgs/FIBCORE/applications?os=All"
+              target="_blank"
               className="uppercase text-white hover:font-semibold">
               GET Staging APPs
             </Link>
