@@ -3,13 +3,7 @@ const PaymentStatus = ({ paymentStatus, isLoading }) => {
   return (
     <div className="flex flex-col mt-4">
       {isLoading ? (
-        <>
-          <div className="animate-pulse flex flex-col space-y-4">
-            <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-            <div className="h-4 bg-gray-200 rounded w-1/2"></div>
-            <div className="h-4 bg-gray-200 rounded w-1/4"></div>
-          </div>
-        </>
+        <SkeletonLoader />
       ) : (
         paymentStatus && (
           <>
@@ -33,3 +27,15 @@ const PaymentStatus = ({ paymentStatus, isLoading }) => {
 };
 
 export default PaymentStatus;
+
+const SkeletonLoader = () => {
+  return (
+    <>
+      <div className="animate-pulse flex flex-col space-y-4">
+        <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+        <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+        <div className="h-4 bg-gray-200 rounded w-1/4"></div>
+      </div>
+    </>
+  );
+};
