@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
 import { AiOutlineClose } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import { navLinks } from '../../data/navLinks';
 
 const MobileNavbar = ({ toggleMobileMenu }) => {
   return (
@@ -8,34 +10,27 @@ const MobileNavbar = ({ toggleMobileMenu }) => {
         <AiOutlineClose size={24} />
       </button>
       <ul className="mt-8 space-y-4">
-        <li>
-          <Link
-            to="/"
-            className="uppercase hover:font-semibold">
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/payments"
-            className="uppercase hover:font-semibold">
-            Payments
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/developers"
-            className="uppercase hover:font-semibold">
-            Developers
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/?getApp=true"
-            className="uppercase hover:font-semibold">
-            GET Staging APPs
-          </Link>
-        </li>
+        {navLinks.map((link, index) => (
+          <li key={index}>
+            {link.external ? (
+              <a
+                href={link.to}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="uppercase hover:font-semibold"
+                onClick={toggleMobileMenu}>
+                {link.text}
+              </a>
+            ) : (
+              <Link
+                to={link.to}
+                className="uppercase hover:font-semibold"
+                onClick={toggleMobileMenu}>
+                {link.text}
+              </Link>
+            )}
+          </li>
+        ))}
       </ul>
     </section>
   );

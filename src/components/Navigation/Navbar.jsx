@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AiOutlineClose } from 'react-icons/ai';
 import Logo from '../Logo';
 import MobileNavbar from './MobileNavbar';
+import { navLinks } from '../../data/navLinks';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -22,36 +23,25 @@ const Navbar = () => {
         </Link>
         <div></div>
         <ul className="flex justify-center space-x-4">
-          <li>
-            <Link
-              to="/"
-              className="uppercase text-white hover:font-semibold">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/payments"
-              className="uppercase text-white hover:font-semibold">
-              Payments
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="https://fib.iq/en/developers"
-              target="_blank"
-              className="uppercase text-white hover:font-semibold">
-              Developers
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="https://appcenter.ms/orgs/FIBCORE/applications?os=All"
-              target="_blank"
-              className="uppercase text-white hover:font-semibold">
-              GET Staging APPs
-            </Link>
-          </li>
+          {navLinks.map((link, index) => (
+            <li key={index}>
+              {link.external ? (
+                <a
+                  href={link.to}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="uppercase text-white hover:font-semibold">
+                  {link.text}
+                </a>
+              ) : (
+                <Link
+                  to={link.to}
+                  className="uppercase text-white hover:font-semibold">
+                  {link.text}
+                </Link>
+              )}
+            </li>
+          ))}
         </ul>
       </section>
       <section className="md:hidden flex justify-between items-center p-4 px-6 bg-primaryGreen">
