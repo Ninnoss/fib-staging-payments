@@ -16,10 +16,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create-payment" element={<CreatePayment />} />
+          <Route path="/payment/:id" element={<PaymentDetails />} />
           <Route path="/check-payment-status" element={<CheckPaymentStatus />} />
           <Route path="/cancel-payment" element={<CancelPayment />} />
           <Route path="/refund-payment" element={<RefundPayment />} />
-          <Route path="/payment/:id" element={<PaymentDetails />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>

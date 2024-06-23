@@ -7,6 +7,8 @@ const RefundPayment = () => {
   const [paymentId, setPaymentId] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
+
   const navigate = useNavigate();
   const accessToken = useTokenRefresh();
 
@@ -23,6 +25,7 @@ const RefundPayment = () => {
       });
 
       if (response.status === 202) {
+        setIsSuccess(true);
         setMessage('Refund requested successfully. Check the payment status for updates.');
         setTimeout(() => navigate('/'), 3000); // Redirect to home after 3 seconds
       } else {
@@ -31,10 +34,12 @@ const RefundPayment = () => {
     } catch (error) {
       console.error('Error requesting refund:', error);
       setMessage('Error requesting refund.');
+      setIsSuccess(false);
     } finally {
       setIsLoading(false);
     }
   };
+  const messageStyle = isSuccess ? 'text-green-500' : 'text-red-500';
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
@@ -62,7 +67,7 @@ const RefundPayment = () => {
           disabled={isLoading}>
           {isLoading ? 'Requesting Refund...' : 'Refund Payment'}
         </Button>
-        {message && <p className="mt-4 text-center text-red-500">{message}</p>}
+        {message && <p className={`mt-4 text-center ${messageStyle}`}>{message}</p>}
       </form>
     </div>
   );

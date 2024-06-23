@@ -7,6 +7,7 @@ const CancelPayment = () => {
   const [paymentId, setPaymentId] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
   const navigate = useNavigate();
   const accessToken = useTokenRefresh();
 
@@ -14,6 +15,7 @@ const CancelPayment = () => {
     e.preventDefault();
     setIsLoading(true);
     setMessage('');
+    setIsSuccess(false);
     try {
       const response = await fetch(`https://fib.stage.fib.iq/protected/v1/payments/${paymentId}/cancel`, {
         method: 'POST',
@@ -24,6 +26,7 @@ const CancelPayment = () => {
 
       if (response.status === 204) {
         setMessage('Payment cancelled successfully.');
+        setIsSuccess(true);
         setTimeout(() => navigate('/'), 3000); // Redirect to home after 3 seconds
       } else {
         throw new Error('Failed to cancel payment');
@@ -31,11 +34,12 @@ const CancelPayment = () => {
     } catch (error) {
       console.error('Error cancelling payment:', error);
       setMessage('Error cancelling payment.');
+      setIsSuccess(false);
     } finally {
       setIsLoading(false);
     }
   };
-
+  const messageStyle = isSuccess ? 'text-green-500' : 'text-red-500';
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <form
@@ -62,7 +66,7 @@ const CancelPayment = () => {
           disabled={isLoading}>
           {isLoading ? 'Cancelling...' : 'Cancel Payment'}
         </Button>
-        {message && <p className="mt-4 text-center text-red-500">{message}</p>}
+        {message && <p className={`mt-4 text-center ${messageStyle}`}>{message}</p>}
       </form>
     </div>
   );

@@ -19,7 +19,6 @@ const CreatePayment = () => {
   const handleCreatePayment = async () => {
     try {
       const payment = await createPayment(accessToken, formData);
-      console.log(payment);
       navigate(`/payment/${payment.paymentId}`, { state: { paymentData: payment } });
     } catch (error) {
       console.error('Error creating payment:', error);

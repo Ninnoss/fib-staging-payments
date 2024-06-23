@@ -5,17 +5,17 @@ const useTokenRefresh = () => {
   const [accessToken, setAccessToken] = useState('');
 
   useEffect(() => {
-    const refreshToken = async () => {
+    const getNewAccessToken = async () => {
       try {
         const token = await fetchAccessToken();
         setAccessToken(token);
       } catch (error) {
-        console.error('Error refreshing access token:', error);
+        console.error('Error getting new access token:', error);
       }
     };
 
-    refreshToken();
-    const intervalId = setInterval(refreshToken, 50 * 1000);
+    getNewAccessToken();
+    const intervalId = setInterval(getNewAccessToken, 50 * 1000); // 50 seconds, the token expires in a minute
 
     return () => clearInterval(intervalId);
   }, []);
