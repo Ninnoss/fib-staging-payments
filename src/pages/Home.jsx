@@ -3,7 +3,7 @@ import Button from '../components/Button';
 
 const Home = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center gap-6 min-h-screen">
+    <main className="flex flex-col md:flex-row items-center justify-center gap-6 min-h-screen">
       <Link
         to="/create-payment"
         className="w-full md:w-auto">
@@ -24,7 +24,7 @@ const Home = () => {
         className="w-full md:w-auto">
         <Button>Refund Payment</Button>
       </Link>
-    </div>
+    </main>
   );
 };
 
