@@ -24,7 +24,10 @@ const CreatePayment = () => {
       // Save payment to local storage
       if (payment) {
         const payments = JSON.parse(localStorage.getItem('payments')) || [];
-        payments.push(payment);
+        payments.push({
+          paymentForm: formData,
+          paymentData: payment,
+        });
         localStorage.setItem('payments', JSON.stringify(payments));
       }
     } catch (error) {
