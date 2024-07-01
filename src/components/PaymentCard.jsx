@@ -47,43 +47,26 @@ const PaymentCard = ({ payment, onDelete }) => {
     onDelete(paymentData?.paymentId);
   };
 
-  // Render skeleton loader while loading
-  const renderSkeleton = () => (
-    <div className="animate-pulse bg-white shadow-md rounded-lg p-6 mb-4">
-      <h2 className="text-xl font-bold mb-2">Loading...</h2>
-      <div className="mb-2 bg-gray-200 h-4 w-1/2 rounded"></div>
-      <div className="mb-2 bg-gray-200 h-4 w-1/2 rounded"></div>
-      <div className="mb-2 bg-gray-200 h-4 w-1/2 rounded"></div>
-      <div className="mb-2 bg-gray-200 h-4 w-1/2 rounded"></div>
-    </div>
-  );
-
   // Render based on payment status
   const renderPaidOrDeclined = () => {
     if (paymentStatus?.status === 'PAID' || paymentStatus?.status === 'DECLINED') {
       return (
         <div className="bg-white shadow-md rounded-lg p-6 mb-4">
           <h2 className="text-xl font-bold mb-2">Payment ID: {paymentData?.paymentId}</h2>
-          {isLoading ? (
-            renderSkeleton()
-          ) : (
-            <>
-              <p className="mb-2">Status: {paymentStatus?.status}</p>
-              <p className="mb-2">
-                Amount: {paymentStatus?.amount.amount} {paymentStatus?.amount.currency}
-              </p>
-              {paymentStatus?.decliningReason && (
-                <p className="mb-2">Declining Reason: {paymentStatus?.decliningReason}</p>
-              )}
-              <p className="mb-2">Paid At: {paymentStatus?.paidAt}</p>
-              <p className="mb-2">
-                Paid By:<span> {paymentStatus?.paidBy?.name}</span>
-              </p>
-              <p className="mb-2">
-                IBAN:<span> {paymentStatus?.paidBy?.iban}</span>
-              </p>
-            </>
+          <p className="mb-2">Status: {paymentStatus?.status}</p>
+          <p className="mb-2">
+            Amount: {paymentStatus?.amount.amount} {paymentStatus?.amount.currency}
+          </p>
+          {paymentStatus?.decliningReason && (
+            <p className="mb-2">Declining Reason: {paymentStatus?.decliningReason}</p>
           )}
+          <p className="mb-2">Paid At: {paymentStatus?.paidAt}</p>
+          <p className="mb-2">
+            Paid By:<span> {paymentStatus?.paidBy?.name}</span>
+          </p>
+          <p className="mb-2">
+            IBAN:<span> {paymentStatus?.paidBy?.iban}</span>
+          </p>
         </div>
       );
     } else {
