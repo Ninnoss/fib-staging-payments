@@ -30,7 +30,9 @@ const Payments = () => {
 
   return (
     <main className="flex flex-col items-center py-16 md:py-28 relative">
-      <p className="text-darkerBlue fixed bottom-2 right-2">Note: Payments are stored ON-DEVICE</p>
+      <p className="text-darkerBlue absolute bottom-3 left-3 md:left-3">
+        Note: Payments are stored <strong>ON-DEVICE</strong>
+      </p>
       <h1 className="text-2xl mb-10 text-center font-bold text-darkerGreen">Payments</h1>
       <div className="w-full max-w-2xl space-y-6">
         {payments.length === 0 ? (
