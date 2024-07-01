@@ -20,6 +20,13 @@ const CreatePayment = () => {
     try {
       const payment = await createPayment(accessToken, formData);
       navigate(`/payment/${payment.paymentId}`, { state: { paymentData: payment } });
+
+      // Save payment to local storage
+      if (payment) {
+        const payments = JSON.parse(localStorage.getItem('payments')) || [];
+        payments.push(payment);
+        localStorage.setItem('payments', JSON.stringify(payments));
+      }
     } catch (error) {
       console.error('Error creating payment:', error);
     }

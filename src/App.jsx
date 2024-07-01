@@ -8,6 +8,7 @@ import CreatePayment from './pages/CreatePayment';
 import CancelPayment from './pages/CancelPayment';
 import RefundPayment from './pages/RefundPayment';
 import CheckPaymentStatus from './pages/CheckPaymentStatus';
+import Payments from './pages/Payments';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/check-payment-status" element={<CheckPaymentStatus />} />
           <Route path="/cancel-payment" element={<CancelPayment />} />
           <Route path="/refund-payment" element={<RefundPayment />} />
+          <Route path="/payments" element={<Payments />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
