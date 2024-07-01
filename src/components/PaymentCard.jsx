@@ -28,6 +28,17 @@ const PaymentCard = ({ payment, onDelete }) => {
       );
       const statusData = await response.json();
       setPaymentStatus(statusData);
+      // Update payment object with status
+      payment.status = statusData.status;
+
+      // Update local storage with the updated payment object
+      const savedPayments = JSON.parse(localStorage.getItem('payments')) || [];
+      const updatedPayments = savedPayments.map((p) =>
+        p.paymentData.paymentId === paymentData.paymentId
+          ? { ...p, payment, paymentStatus: statusData.status }
+          : p
+      );
+      localStorage.setItem('payments', JSON.stringify(updatedPayments));
     } catch (error) {
       console.error('Error fetching payment status:', error);
     } finally {
@@ -51,7 +62,7 @@ const PaymentCard = ({ payment, onDelete }) => {
   const renderPaidOrDeclined = () => {
     if (paymentStatus?.status === 'PAID' || paymentStatus?.status === 'DECLINED') {
       return (
-        <div className="bg-white shadow-md rounded-lg p-6 mb-4">
+        <div className="bg-white shadow-md rounded-lg p-6 mb-4 max-w-sm md:max-w-none mx-auto">
           <h2 className="text-xl font-bold mb-2">Payment ID: {paymentData?.paymentId}</h2>
           <p className="mb-2">Status: {paymentStatus?.status}</p>
           <p className="mb-2">
@@ -71,7 +82,7 @@ const PaymentCard = ({ payment, onDelete }) => {
       );
     } else {
       return (
-        <div className="bg-white shadow-md rounded-lg p-6 mb-4">
+        <div className="bg-white shadow-md rounded-lg p-6 mb-4 max-w-sm md:max-w-none mx-auto">
           <h2 className="text-xl font-bold mb-2">Payment ID: {paymentData?.paymentId}</h2>
           {isLoading ? (
             <PaymentCardSkeleton />
@@ -89,7 +100,7 @@ const PaymentCard = ({ payment, onDelete }) => {
                 <strong>Pay through:</strong>
                 <div className="flex justify-between items-center">
                   <p className="mb-2">
-                    Readable Code: <strong>{paymentData?.readableCode}</strong>
+                    Readable Code: <br /> <strong>{paymentData?.readableCode}</strong>
                   </p>
                   {paymentData?.qrCode && (
                     <div className="mb-2">

@@ -23,10 +23,13 @@ const CreatePayment = () => {
 
       // Save payment to local storage
       if (payment) {
+        const timestamp = new Date().toISOString(); // Get current timestamp
         const payments = JSON.parse(localStorage.getItem('payments')) || [];
         payments.push({
           paymentForm: formData,
           paymentData: payment,
+          paymentStatus: 'UNPAID',
+          timestamp: timestamp,
         });
         localStorage.setItem('payments', JSON.stringify(payments));
       }
