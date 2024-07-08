@@ -45,7 +45,10 @@ const Navbar = () => {
       </section>
       <section className="md:hidden flex justify-between items-center p-4 px-6 bg-primaryGreen">
         <Link to="/">
-          <img src='/fib-white.png' width={200}/>
+          <img
+            src="/fib-white.png"
+            width={200}
+          />
         </Link>
         <button
           aria-label="Toggle Menu"
@@ -76,7 +79,12 @@ const Navbar = () => {
           ))}
         </button>
       </section>
-      {isMobileMenuOpen && <MobileNavbar toggleMobileMenu={toggleMobileMenu} />}
+      {isMobileMenuOpen && (
+        <MobileNavbar
+          toggleMobileMenu={toggleMobileMenu}
+          isMobileMenuOpen={isMobileMenuOpen}
+        />
+      )}
     </>
   );
 };

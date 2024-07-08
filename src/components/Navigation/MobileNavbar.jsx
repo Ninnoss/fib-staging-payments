@@ -2,9 +2,11 @@
 import { Link } from 'react-router-dom';
 import { navLinks } from '../../data/navLinks';
 
-const MobileNavbar = ({ toggleMobileMenu }) => {
+const MobileNavbar = ({ toggleMobileMenu, isMobileMenuOpen }) => {
+  const classes = !isMobileMenuOpen ? 'slide-out' : 'slide-in';
   return (
-    <section className="fixed inset-0 flex flex-col items-center justify-start bg-primaryGreen text-white px-4 py-28 transform-gpu transition-transform duration-300 ease-in-out z-30 slide-in">
+    <section
+      className={`fixed inset-0 flex flex-col items-center justify-start bg-primaryGreen text-white px-4 py-28 transform-gpu transition-transform duration-300 ease-in-out z-30 ${classes}`}>
       <ul className="mt-8 space-y-8 text-center">
         {navLinks.map((link, index) => (
           <li key={index}>
