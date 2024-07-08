@@ -5,11 +5,13 @@ import { navLinks } from '../../data/navLinks';
 
 const MobileNavbar = ({ toggleMobileMenu }) => {
   return (
-    <section className="fixed inset-0 flex flex-col items-start justify-start bg-primaryGreen text-white p-4 transform-gpu transition-transform duration-300 ease-in-out">
-      <button onClick={toggleMobileMenu}>
+    <section className="fixed inset-0 flex flex-col items-center justify-start bg-primaryGreen text-white px-4 py-28 transform-gpu transition-transform duration-300 ease-in-out z-50 slide-in">
+      <button
+        onClick={toggleMobileMenu}
+        className="absolute top-8 right-8">
         <AiOutlineClose size={24} />
       </button>
-      <ul className="mt-8 space-y-4">
+      <ul className="mt-8 space-y-8 text-center">
         {navLinks.map((link, index) => (
           <li key={index}>
             {link.external ? (

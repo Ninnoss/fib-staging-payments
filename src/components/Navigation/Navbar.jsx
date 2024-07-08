@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AiOutlineClose } from 'react-icons/ai';
+import { navLinks } from '../../data/navLinks';
 import Logo from '../Logo';
 import MobileNavbar from './MobileNavbar';
-import { navLinks } from '../../data/navLinks';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -48,8 +47,33 @@ const Navbar = () => {
         <Link to="/">
           <Logo />
         </Link>
-        <button onClick={toggleMobileMenu}>
-          <div className="text-white">{isMobileMenuOpen ? <AiOutlineClose size={24} /> : <div>☰</div>}</div>
+        <button
+          aria-label="Toggle Menu"
+          className={`w-10 h-10 relative bg-transparent border-none outline-none flex flex-col justify-around p-2`}
+          onClick={toggleMobileMenu}>
+          {/* Add 3 spans to form a Menu, then make the middle one disppear when clicked and change location of the first and last to form X */}
+          {Array.from({ length: 3 }, (_, index) => (
+            <span
+              key={index}
+              className={
+                `block bg-white h-0.5 w-full transition-transform duration-300 ease-in-out origin-center ` +
+                `${
+                  isMobileMenuOpen
+                    ? index === 0
+                      ? 'transform rotate-45 translate-y-2'
+                      : ''
+                    : 'transform rotate-0'
+                } ` +
+                `${isMobileMenuOpen && index === 1 ? 'opacity-0' : ''} ` +
+                `${
+                  isMobileMenuOpen
+                    ? index === 2
+                      ? 'transform -rotate-45 -translate-y-2'
+                      : ''
+                    : 'transform rotate-0'
+                }`
+              }></span>
+          ))}
         </button>
       </section>
       {isMobileMenuOpen && <MobileNavbar toggleMobileMenu={toggleMobileMenu} />}

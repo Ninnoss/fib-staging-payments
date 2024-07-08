@@ -20,3 +20,29 @@
       focus:invalid:border-red-500 focus:invalid:ring-red-500
       text-sm shadow-sm;
 }
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.6s forwards;
+}
+
+.slide-out {
+  animation: slideOut 0.3s forwards;
+}
