@@ -60,7 +60,7 @@ const PaymentCard = ({ payment, onDelete }) => {
 
   // Render based on payment status
   const renderPaidOrDeclined = () => {
-    if (paymentStatus?.status === 'PAID' || paymentStatus?.status === 'DECLINED') {
+    if (paymentStatus?.status === 'PAID') {
       return (
         <div className="bg-white shadow-md rounded-lg p-6 mb-4 max-w-sm md:max-w-none mx-auto">
           <h2 className="text-xl font-bold mb-2">Payment ID: {paymentData?.paymentId}</h2>
@@ -78,6 +78,19 @@ const PaymentCard = ({ payment, onDelete }) => {
           <p className="mb-2">
             IBAN:<span> {paymentStatus?.paidBy?.iban}</span>
           </p>
+        </div>
+      );
+    } else if (paymentStatus?.status === 'DECLINED') {
+      return (
+        <div className="bg-white shadow-md rounded-lg p-6 mb-4 max-w-sm md:max-w-none mx-auto">
+          <h2 className="text-xl font-bold mb-2">Payment ID: {paymentData?.paymentId}</h2>
+          <p className="mb-2">Status: {paymentStatus?.status}</p>
+          <p className="mb-2">
+            Amount: {paymentStatus?.amount.amount} {paymentStatus?.amount.currency}
+          </p>
+          {paymentStatus?.decliningReason && (
+            <p className="mb-2">Declining Reason: {paymentStatus?.decliningReason}</p>
+          )}
         </div>
       );
     } else {
