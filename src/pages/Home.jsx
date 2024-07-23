@@ -4,7 +4,16 @@ import LoginWithFIB from '../components/LoginWithFIB';
 import useAuthCodeExchange from '../hooks/useAuthCodeExchange';
 
 const Home = () => {
-  const { tokenData, error } = useAuthCodeExchange();
+  const { tokenData, userData, error } = useAuthCodeExchange();
+
+  if (userData) {
+    return (
+      <div>
+        <h1>User Details</h1>
+        <pre>{JSON.stringify(userData, null, 2)}</pre>
+      </div>
+    );
+  }
 
   if (tokenData) {
     return (
@@ -14,6 +23,7 @@ const Home = () => {
       </div>
     );
   }
+
   if (error) {
     return <div>Error: {error.message}</div>;
   }
