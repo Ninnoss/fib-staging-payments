@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { decodeIdToken } from '../utils/decodeIdToken';
 
 const useAuthCodeExchange = () => {
   const location = useLocation();
@@ -46,6 +47,11 @@ const useAuthCodeExchange = () => {
       const data = await response.json();
       setTokenData(data);
       fetchUserData(data.access_token);
+      // decode the id token to get basic user details from it
+      if (data.id_token) {
+        const decodedIdToken = decodeIdToken(data.id_token);
+        console.log('Decoded ID Token:', decodedIdToken);
+      }
     } catch (error) {
       setError(error);
       console.error('Error exchanging authorization code for tokens:', error);
