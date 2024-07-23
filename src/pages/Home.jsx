@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
+import LoginWithFIB from '../components/LoginWithFIB';
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <Link to="/refund-payment">
         <Button>Refund Payment</Button>
       </Link>
+      <LoginWithFIB />
     </main>
   );
 };
