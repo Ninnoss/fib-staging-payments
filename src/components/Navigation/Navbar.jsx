@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { navLinks } from '../../data/navLinks';
 import Logo from '../Logo';
 import MobileNavbar from './MobileNavbar';
+import ProfileButton from '../ProfileButton';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -20,7 +21,6 @@ const Navbar = () => {
           <Logo />
           <h1 className="text-3xl text-white font-semibold uppercase hidden lg:block">Staging Area</h1>
         </Link>
-        <div></div>
         <ul className="flex justify-center space-x-4">
           {navLinks.map((link, index) => (
             <li key={index}>
@@ -42,7 +42,10 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
+        <ProfileButton />
       </section>
+
+      {/* Mobile navbar */}
       <section className="md:hidden flex justify-between items-center p-4 px-6 bg-primaryGreen">
         <Link to="/">
           <img

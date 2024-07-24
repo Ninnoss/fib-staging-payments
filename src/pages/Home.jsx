@@ -1,32 +1,10 @@
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
-import LoginWithFIB from '../components/LoginWithFIB';
-import useAuthCodeExchange from '../hooks/useAuthCodeExchange';
+import { loginWithFIBUrl } from '../data/loginWithFIBUrl';
+import { useAuth } from '../hooks/useAuth';
 
 const Home = () => {
-  const { tokenData, userData, error } = useAuthCodeExchange();
-
-  if (userData) {
-    return (
-      <div>
-        <h1>User Details</h1>
-        <pre>{JSON.stringify(userData, null, 2)}</pre>
-      </div>
-    );
-  }
-
-  if (tokenData) {
-    return (
-      <div>
-        <h1>Tokens</h1>
-        <pre>{JSON.stringify(tokenData, null, 2)}</pre>
-      </div>
-    );
-  }
-
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
+  const { userData } = useAuth();
 
   return (
     <main className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-6 py-16 md:py-28 lg:py-64">
@@ -42,7 +20,11 @@ const Home = () => {
       <Link to="/refund-payment">
         <Button>Refund Payment</Button>
       </Link>
-      <LoginWithFIB />
+      {!userData && (
+        <Link to={loginWithFIBUrl}>
+          <Button>Login with FIB</Button>
+        </Link>
+      )}
     </main>
   );
 };

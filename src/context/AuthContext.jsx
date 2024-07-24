@@ -5,7 +5,7 @@ import useAuthCodeExchange from '../hooks/useAuthCodeExchange';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const { tokenData, userData, error } = useAuthCodeExchange();
+  const { userData, error, tokenData } = useAuthCodeExchange();
   const [authState, setAuthState] = useState({ tokenData: null, userData: null, error: null });
 
   useEffect(() => {
