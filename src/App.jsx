@@ -9,6 +9,7 @@ import CancelPayment from './pages/CancelPayment';
 import RefundPayment from './pages/RefundPayment';
 import CheckPaymentStatus from './pages/CheckPaymentStatus';
 import Payments from './pages/Payments';
+import UserProfile from './pages/UserProfile';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/cancel-payment" element={<CancelPayment />} />
           <Route path="/refund-payment" element={<RefundPayment />} />
           <Route path="/payments" element={<Payments />} />
+          <Route path="/profile" element={<UserProfile />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
