@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import useAuthCodeExchange from '../hooks/useAuthCodeExchange';
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const { tokenData, userData, error } = useAuthCodeExchange();
@@ -16,5 +16,3 @@ export const AuthProvider = ({ children }) => {
 
   return <AuthContext.Provider value={authState}>{children}</AuthContext.Provider>;
 };
-
-export const useAuth = () => useContext(AuthContext);
