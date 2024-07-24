@@ -42,7 +42,7 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <UserProfileDropdown/>
+        <UserProfileDropdown />
       </section>
 
       {/* Mobile navbar */}
@@ -81,6 +81,7 @@ const Navbar = () => {
               }></span>
           ))}
         </button>
+        <UserProfileDropdown />
       </section>
       {isMobileMenuOpen && (
         <MobileNavbar

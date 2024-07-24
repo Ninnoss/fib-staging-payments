@@ -29,6 +29,14 @@ const MobileNavbar = ({ toggleMobileMenu, isMobileMenuOpen }) => {
             )}
           </li>
         ))}
+        <li>
+          <Link
+            to={'/profile'}
+            className="uppercase hover:font-semibold"
+            onClick={toggleMobileMenu}>
+            Profile
+          </Link>
+        </li>
       </ul>
     </section>
   );
