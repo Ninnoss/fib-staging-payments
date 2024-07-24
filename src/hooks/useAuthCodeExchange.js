@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { decodeIdToken } from '../utils/decodeIdToken';
+import { APP_URL } from '../utils/getServer';
 
 const useAuthCodeExchange = () => {
   const location = useLocation();
@@ -19,8 +20,6 @@ const useAuthCodeExchange = () => {
   }, [location.search]);
 
   const exchangeAuthorizationCodeForTokens = async (authorizationCode) => {
-    const redirectUri = 'http://localhost:3000';
-
     const tokenEndpoint =
       'https://fib.stage.fib.iq/auth/realms/fib-personal-application/protocol/openid-connect/token';
     const params = new URLSearchParams({
@@ -28,7 +27,7 @@ const useAuthCodeExchange = () => {
       client_secret: import.meta.env.VITE_FIB_SSO_CLIENT_SECRET,
       grant_type: 'authorization_code',
       code: authorizationCode,
-      redirect_uri: redirectUri,
+      redirect_uri: APP_URL,
     });
 
     try {
