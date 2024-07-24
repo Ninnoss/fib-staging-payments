@@ -1,9 +1,10 @@
+import { ACCESS_TOKEN_URL } from '../data/constants';
+
 const fetchAccessToken = async () => {
   const clientId = import.meta.env.VITE_CLIENT_ID;
   const clientSecret = import.meta.env.VITE_CLIENT_SECRET;
-  const tokenURL = 'https://fib.stage.fib.iq/auth/realms/fib-online-shop/protocol/openid-connect/token';
 
-  const tokenResponse = await fetch(tokenURL, {
+  const tokenResponse = await fetch(ACCESS_TOKEN_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',

@@ -1,6 +1,6 @@
 import { APP_URL } from '../utils/getServer';
+import { SSO_BASE_URL } from './constants';
 
-const baseURL = 'https://fib.stage.fib.iq/auth/realms/fib-personal-application/protocol/openid-connect/auth';
 const responseType = 'code';
 const clientId = 'sso-isic-registration';
 const scope = 'openid';
@@ -13,4 +13,4 @@ const queryParams = new URLSearchParams({
   redirect_uri: redirectUri,
 }).toString();
 
-export const loginWithFIBUrl = `${baseURL}?${queryParams}`;
+export const loginWithFIBUrl = `${SSO_BASE_URL}?${queryParams}`;
