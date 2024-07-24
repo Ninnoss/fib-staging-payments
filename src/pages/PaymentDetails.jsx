@@ -39,8 +39,15 @@ const PaymentDetails = () => {
   }
 
   const validUntilDate = new Date(paymentData.validUntil);
-  const options = { year: 'numeric', month: 'short', day: 'numeric' };
-  const formattedValidUntil = validUntilDate.toLocaleDateString('en-US', options);
+  const options = {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true, 
+  };
+  const formattedValidUntil = validUntilDate.toLocaleString('en-US', options);
 
   return (
     <main className="py-16 md:py-28">
