@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { navLinks } from '../../data/navLinks';
 import Logo from '../Logo';
+import UserProfileDropdown from '../UserProfileDropdown';
 import MobileNavbar from './MobileNavbar';
-import ProfileButton from '../ProfileButton';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -42,7 +42,7 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <ProfileButton />
+        <UserProfileDropdown/>
       </section>
 
       {/* Mobile navbar */}
