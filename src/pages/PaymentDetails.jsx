@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import PaymentStatus from '../components/PaymentStatus';
 import useTokenRefresh from '../hooks/useTokenRefresh';
+import { PAYMENTS_BASE_URL } from '../data/constants';
 
 const PaymentDetails = () => {
   const { id: paymentId } = useParams();
@@ -15,7 +16,7 @@ const PaymentDetails = () => {
   const fetchPaymentStatus = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch(`https://fib.stage.fib.iq/protected/v1/payments/${paymentId}/status`, {
+      const response = await fetch(`${PAYMENTS_BASE_URL}/${paymentId}/status`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -45,7 +46,7 @@ const PaymentDetails = () => {
     day: 'numeric',
     hour: 'numeric',
     minute: 'numeric',
-    hour12: true, 
+    hour12: true,
   };
   const formattedValidUntil = validUntilDate.toLocaleString('en-US', options);
 

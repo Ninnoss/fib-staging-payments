@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { decodeIdToken } from '../utils/decodeIdToken';
-import { AUTH_TOKEN_URL } from '../data/constants';
+import { AUTH_TOKEN_URL, SSO_USER_DETAILS_URL } from '../data/constants';
 import { APP_URL } from '../utils/getServer';
 
 const useAuthCodeExchange = () => {
@@ -57,10 +57,8 @@ const useAuthCodeExchange = () => {
   };
 
   const fetchUserData = async (accessToken) => {
-    const userInfoEndpoint = 'https://fib.stage.fib.iq/protected/v1/sso-user-details';
-
     try {
-      const response = await fetch(userInfoEndpoint, {
+      const response = await fetch(SSO_USER_DETAILS_URL, {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${accessToken}`,

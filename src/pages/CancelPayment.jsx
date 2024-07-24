@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import useTokenRefresh from '../hooks/useTokenRefresh';
+import { PAYMENTS_BASE_URL } from '../data/constants';
 
 const CancelPayment = () => {
   const [paymentId, setPaymentId] = useState('');
@@ -17,7 +18,7 @@ const CancelPayment = () => {
     setMessage('');
     setIsSuccess(false);
     try {
-      const response = await fetch(`https://fib.stage.fib.iq/protected/v1/payments/${paymentId}/cancel`, {
+      const response = await fetch(`${PAYMENTS_BASE_URL}/${paymentId}/cancel`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${accessToken}`,

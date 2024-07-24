@@ -1,8 +1,8 @@
-const createPayment = async (accessToken, formData) => {
-  const url = 'https://fib.stage.fib.iq/protected/v1/payments';
+import { PAYMENTS_BASE_URL } from '../data/constants';
 
+const createPayment = async (accessToken, formData) => {
   try {
-    const paymentResponse = await fetch(url, {
+    const paymentResponse = await fetch(PAYMENTS_BASE_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

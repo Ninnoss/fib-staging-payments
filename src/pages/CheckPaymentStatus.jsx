@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from '../components/Button';
 import useTokenRefresh from '../hooks/useTokenRefresh';
+import { PAYMENTS_BASE_URL } from '../data/constants';
 
 const CheckPaymentStatus = () => {
   const [paymentId, setPaymentId] = useState('');
@@ -15,7 +16,7 @@ const CheckPaymentStatus = () => {
     setMessage('');
     setPaymentStatus(null);
     try {
-      const response = await fetch(`https://fib.stage.fib.iq/protected/v1/payments/${paymentId}/status`, {
+      const response = await fetch(`${PAYMENTS_BASE_URL}/${paymentId}/status`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
