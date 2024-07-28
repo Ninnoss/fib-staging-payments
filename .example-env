@@ -6,11 +6,11 @@ VITE_PROD_APP="https://fib-staging-payments.netlify.app/"
 # FIB environment
 VITE_FIB_GATEWAY_ENVIRONMENT="staging" # make sure to change this to prod after you obtain prod credentials from FIB
 
-# Integration credentials
+# Integration credentials - provided by FIB 
 GRANT_TYPE =client_credentials
 VITE_CLIENT_ID=
 VITE_CLIENT_SECRET=
 
-# SSO credentials
+# SSO credentials - provided by FIB 
 VITE_FIB_SSO_CLIENT_ID=
 VITE_FIB_SSO_CLIENT_SECRET=
