@@ -7,13 +7,13 @@ export default defineConfig({
   // base: '/fib-staging-payments/',
   server: {
     port: 3000,
-    proxy: {
-      '/api': {
-        target: 'https://fib.stage.fib.iq',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
-    },
+    // proxy: {
+    //   '/api': {
+    //     target: 'https://fib.stage.fib.iq',
+    //     changeOrigin: true,
+    //     rewrite: (path) => path.replace(/^\/api/, ''),
+    //   },
+    // },
     watch: {
       usePolling: true,
     },
