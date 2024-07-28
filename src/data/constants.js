@@ -1,6 +1,5 @@
-const isProduction = import.meta.env.VITE_NODE_ENV !== 'development';
-let domain = isProduction ? 'fib.prod.fib.iq' : 'fib.stage.fib.iq';
-domain = 'fib.stage.fib.iq'; // keeping this at stage because we are using test credentials. Remove this when going to prod
+const isProdCredential = import.meta.env.VITE_FIB_GATEWAY_ENVIRONMENT !== 'staging';
+const domain = isProdCredential ? 'fib.prod.fib.iq' : 'fib.stage.fib.iq';
 
 export const ACCESS_TOKEN_URL = `https://${domain}/auth/realms/fib-online-shop/protocol/openid-connect/token`;
 export const AUTH_TOKEN_URL = `https://${domain}/auth/realms/fib-personal-application/protocol/openid-connect/token`;
