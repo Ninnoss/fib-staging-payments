@@ -2,12 +2,16 @@ import { PAYMENTS_BASE_URL } from '../data/constants';
 
 const createPayment = async (accessToken, formData) => {
   try {
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    };
+    console.log('Request headers:', headers);
+
     const paymentResponse = await fetch(PAYMENTS_BASE_URL, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${accessToken}`,
-      },
+      headers: headers,
+      credentials: 'include',
       body: JSON.stringify({
         monetaryValue: {
           amount: formData.amount,
