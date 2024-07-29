@@ -3,9 +3,7 @@ const isDeployed = import.meta.env.VITE_NODE_ENV !== 'development';
 
 // const SERVER_BASE = isProdCredential ? 'fib.prod.fib.iq' : 'fib.stage.fib.iq';
 
-const SERVER_BASE = isDeployed
-  ? 'https://your-deployed-proxy-server-url.com/api'
-  : 'http://localhost:3100/api';
+const SERVER_BASE = isDeployed ? 'https://fib-stage-server.onrender.com/api' : 'http://localhost:3100/api';
 
 export const ACCESS_TOKEN_URL = `${SERVER_BASE}/auth/realms/fib-online-shop/protocol/openid-connect/token`;
 export const AUTH_TOKEN_URL = `${SERVER_BASE}/auth/realms/fib-personal-application/protocol/openid-connect/token`;
