@@ -38,7 +38,7 @@ const Payments = () => {
         {payments.length === 0 ? (
           <p>No payments found.</p>
         ) : (
-          payments.map((payment, index) => (
+          payments?.map((payment, index) => (
             <PaymentCard
               key={index}
               payment={payment}

@@ -106,7 +106,7 @@ const PaymentCard = ({ payment, onDelete }) => {
               <p className="mb-2">Expires In: {paymentForm?.expiresIn}</p>
               <p className="mb-2">Refundable For: {paymentForm?.refundableFor}</p>
               <p className="mb-2">Status: {paymentStatus?.status}</p>
-              {/* <p className="mb-2">Status Callback URL: {paymentForm?.statusCallbackUrl}</p> */}
+              <p className="mb-2">Status Callback URL: {paymentForm?.statusCallbackUrl}</p>
               <div className="mt-4">
                 <strong>Pay through:</strong>
                 <div className="flex justify-between items-center">
