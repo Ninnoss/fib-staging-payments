@@ -14,6 +14,7 @@ const CreatePayment = () => {
     expiresIn: 'PT8H6M12.345S',
     refundableFor: 'PT48H',
     statusCallbackUrl: 'https://URL_TO_UPDATE_YOUR_PAYMENT_STATUS',
+    redirectUri: 'https://localhost:3000/payments',
   });
 
   const handleCreatePayment = async () => {
