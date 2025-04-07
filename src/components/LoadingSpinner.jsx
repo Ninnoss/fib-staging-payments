@@ -16,7 +16,7 @@ const LoadingSpinner = (isInBottom = false) => {
    */
 
   return (
-    <div className={`flex justify-center items-center ${isInBottom ? 'h-3/6 absolute bottom-0 z-[6000] bg-white w-full' : 'h-screen'}`}>
+    <div className={`flex justify-center items-center ${isInBottom ? 'h-3/6 absolute bottom-0 z-6000 bg-white w-full' : 'h-screen'}`}>
       <FaSpinner className="animate-spin text-4xl text-gray-300" />
     </div>
   );

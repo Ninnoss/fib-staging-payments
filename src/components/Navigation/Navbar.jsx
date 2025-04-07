@@ -55,7 +55,7 @@ const Navbar = () => {
         </Link>
         <button
           aria-label="Toggle Menu"
-          className={`w-10 h-10 relative bg-transparent border-none outline-none flex flex-col justify-around p-2 z-50`}
+          className={`w-10 h-10 relative bg-transparent border-none outline-hidden flex flex-col justify-around p-2 z-50`}
           onClick={toggleMobileMenu}>
           {/* Add 3 spans to form a Menu, then make the middle one disppear when clicked and change location of the first and last to form X */}
           {Array.from({ length: 3 }, (_, index) => (

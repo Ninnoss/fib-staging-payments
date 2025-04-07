@@ -88,7 +88,7 @@ const PaymentDetails = () => {
             </Link>
           </div>
           <button
-            className="bg-darkerGreen hover:bg-primaryGreen text-white font-bold py-2 px-4 rounded mt-4"
+            className="bg-darkerGreen hover:bg-primaryGreen text-white font-bold py-2 px-4 rounded-sm mt-4"
             onClick={handleCheckPaymentStatus}>
             Check Payment Status
           </button>

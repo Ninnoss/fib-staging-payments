@@ -45,7 +45,7 @@ const CancelPayment = () => {
     <div className="flex flex-col items-center justify-center py-16 md:py-28">
       <h1 className="text-2xl mb-10 text-center font-bold text-darkerGreen">Cancel Payment</h1>
       <form
-        className="bg-white p-6 rounded shadow-md w-full max-w-sm md:max-w-md"
+        className="bg-white p-6 rounded-sm shadow-md w-full max-w-sm md:max-w-md"
         onSubmit={handleCancelPayment}>
         <div className="mb-4">
           <label
@@ -56,7 +56,7 @@ const CancelPayment = () => {
           <input
             type="text"
             id="paymentId"
-            className="w-full px-3 py-2 border rounded"
+            className="w-full px-3 py-2 border rounded-sm"
             value={paymentId}
             onChange={(e) => setPaymentId(e.target.value)}
             required
