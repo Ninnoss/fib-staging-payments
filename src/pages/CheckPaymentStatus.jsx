@@ -37,7 +37,7 @@ const CheckPaymentStatus = () => {
 
   return (
     <main className="flex flex-col items-center justify-center py-16 md:py-28">
-      <h1 className="text-2xl mb-10 text-center font-bold text-darkerGreen">Check Payment Status</h1>
+      <h1 className="text-2xl mb-10 text-center font-bold text-darker-green">Check Payment Status</h1>
       <form
         onSubmit={handleCheckPaymentStatus}
         className="max-w-sm md:max-w-md w-full bg-white shadow-md rounded-lg p-6">

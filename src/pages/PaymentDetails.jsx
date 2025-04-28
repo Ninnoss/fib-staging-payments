@@ -52,7 +52,7 @@ const PaymentDetails = () => {
 
   return (
     <main className="py-16 md:py-28">
-      <h1 className="text-2xl mb-10 text-center font-bold text-darkerGreen">Payment Details</h1>
+      <h1 className="text-2xl mb-10 text-center font-bold text-darker-green">Payment Details</h1>
       <div className="max-w-lg mx-auto bg-white shadow-md rounded-lg overflow-hidden py-4">
         <div className="px-4 py-2">
           <p>
@@ -88,7 +88,7 @@ const PaymentDetails = () => {
             </Link>
           </div>
           <button
-            className="bg-darkerGreen hover:bg-primaryGreen text-white font-bold py-2 px-4 rounded-sm mt-4"
+            className="bg-darker-green hover:bg-primary-green text-white font-bold py-2 px-4 rounded-sm mt-4"
             onClick={handleCheckPaymentStatus}>
             Check Payment Status
           </button>

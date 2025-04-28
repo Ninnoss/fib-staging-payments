@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <>
-      <section className="hidden md:flex justify-between items-center p-4 px-16 bg-primaryGreen">
+      <section className="hidden md:flex justify-between items-center p-4 px-16 bg-primary-green">
         <Link
           to="/"
           className="flex items-center gap-x-4">
@@ -46,7 +46,7 @@ const Navbar = () => {
       </section>
 
       {/* Mobile navbar */}
-      <section className="md:hidden flex justify-between items-center p-4 px-6 bg-primaryGreen">
+      <section className="md:hidden flex justify-between items-center p-4 px-6 bg-primary-green">
         <Link to="/">
           <img
             src="/fib-white.png"

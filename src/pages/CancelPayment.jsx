@@ -43,7 +43,7 @@ const CancelPayment = () => {
   const messageStyle = isSuccess ? 'text-green-500' : 'text-red-500';
   return (
     <div className="flex flex-col items-center justify-center py-16 md:py-28">
-      <h1 className="text-2xl mb-10 text-center font-bold text-darkerGreen">Cancel Payment</h1>
+      <h1 className="text-2xl mb-10 text-center font-bold text-darker-green">Cancel Payment</h1>
       <form
         className="bg-white p-6 rounded-sm shadow-md w-full max-w-sm md:max-w-md"
         onSubmit={handleCancelPayment}>
