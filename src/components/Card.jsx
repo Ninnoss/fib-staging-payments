@@ -9,7 +9,7 @@ const Card = ({ name, img, description, trashBags, volunteers, date, location, m
   const { t } = useTranslation();
 
   return (
-    <article className="relative w-72 sm:w-80 bg-white rounded-lg shadow transition-all duration-300 hover:shadow-2xl">
+    <article className="relative w-72 sm:w-80 bg-white rounded-lg shadow-sm transition-all duration-300 hover:shadow-2xl">
       <figure>
         <img
           className="rounded-t-lg max-h-[220px] w-full"
@@ -25,7 +25,7 @@ const Card = ({ name, img, description, trashBags, volunteers, date, location, m
           <h3 className="mt-4 mb-2 text-Heading-6 text-center tracking-tight">{name}</h3>
         </header>
 
-        <span className="text-Body-s block text-highlightBlack">{date}</span>
+        <span className="text-Body-s block text-highlight-black">{date}</span>
         <p className={`my-3 text-Body-s text-center line-clamp-3  text-[#777E90]`}>{description}</p>
       </div>
 
@@ -53,8 +53,8 @@ const Card = ({ name, img, description, trashBags, volunteers, date, location, m
         <div>
           <div className="text-center px-5 pb-3">
             <p className={`my-3 text-Body-s text-center line-clamp-3  text-[#777E90]`}>
-              قام <strong className=" text-highlightBlack">{volunteers} متطوع </strong> بالمشاركة بهذهِ الحملة, وقمنا بجمع اكثر من{' '}
-              <strong className=" text-highlightBlack">{trashBags} كيس قمامة </strong>
+              قام <strong className=" text-highlight-black">{volunteers} متطوع </strong> بالمشاركة بهذهِ الحملة, وقمنا بجمع اكثر من{' '}
+              <strong className=" text-highlight-black">{trashBags} كيس قمامة </strong>
             </p>
             <div className="flex justify-center items-center text-Body-s gap-3">
               <HiOutlineLocationMarker color="#548C67" />

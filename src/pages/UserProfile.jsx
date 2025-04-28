@@ -12,7 +12,7 @@ const UserProfile = () => {
 
   return (
     <div className="max-w-2xl mx-auto p-4  rounded-lg py-16 md:py-28">
-      <h1 className="text-2xl mb-10 font-bold text-darkerGreen">User Profile</h1>
+      <h1 className="text-2xl mb-10 font-bold text-darker-green">User Profile</h1>
       <div className="mb-4">
         <strong>Phone Number:</strong> <span>{phoneNumber}</span>
       </div>

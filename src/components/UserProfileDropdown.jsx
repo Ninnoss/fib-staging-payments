@@ -11,7 +11,7 @@ const UserProfileDropdown = () => {
     <>
       {userData ? (
         <Menu>
-          <MenuButton className="rounded-3xl flex gap-1 items-center border border-white sm:!p-2 cursor-pointer">
+          <MenuButton className="rounded-3xl flex gap-1 items-center border border-white sm:p-2! cursor-pointer">
             <img
               src={'/user-avatar.webp'}
               alt="img"
@@ -24,18 +24,18 @@ const UserProfileDropdown = () => {
 
           <MenuItems
             anchor="bottom"
-            className="absolute right-0 mt-2 w-28 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            className="absolute right-0 mt-2 w-28 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-hidden">
             <MenuItem>
               <Link
                 to="/profile"
-                className="block px-4 py-2 text-sm data-[focus]:bg-gray-100">
+                className="block px-4 py-2 text-sm data-focus:bg-gray-100">
                 Profile
               </Link>
             </MenuItem>
             <MenuItem>
               <Link
                 to="/logout"
-                className="block px-4 py-2 text-sm data-[focus]:bg-gray-100">
+                className="block px-4 py-2 text-sm data-focus:bg-gray-100">
                 Logout
               </Link>
             </MenuItem>

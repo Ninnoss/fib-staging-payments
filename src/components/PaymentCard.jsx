@@ -146,7 +146,7 @@ const PaymentCard = ({ payment, onDelete }) => {
               <div className="flex space-x-4 mt-4">
                 <Button
                   onClick={fetchPaymentStatus}
-                  className="bg-blue-500 text-white py-2 px-4 rounded">
+                  className="bg-blue-500 text-white py-2 px-4 rounded-sm">
                   Check Status
                 </Button>
                 <button

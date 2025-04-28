@@ -12,7 +12,7 @@ const PaymentForm = ({ formData, setFormData, createPayment }) => {
 
   return (
     <div className="w-full md:w-2/3 lg:w-1/3 px-4">
-      <h1 className="text-2xl mb-10 text-center font-bold text-darkerGreen">Payment Details</h1>
+      <h1 className="text-2xl mb-10 text-center font-bold text-darker-green">Payment Details</h1>
       <form>
         <div className="mb-4">
           <label

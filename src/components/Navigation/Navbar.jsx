@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <>
-      <section className="hidden md:flex justify-between items-center p-4 px-16 bg-primaryGreen">
+      <section className="hidden md:flex justify-between items-center p-4 px-16 bg-primary-green">
         <Link
           to="/"
           className="flex items-center gap-x-4">
@@ -46,7 +46,7 @@ const Navbar = () => {
       </section>
 
       {/* Mobile navbar */}
-      <section className="md:hidden flex justify-between items-center p-4 px-6 bg-primaryGreen">
+      <section className="md:hidden flex justify-between items-center p-4 px-6 bg-primary-green">
         <Link to="/">
           <img
             src="/fib-white.png"
@@ -55,7 +55,7 @@ const Navbar = () => {
         </Link>
         <button
           aria-label="Toggle Menu"
-          className={`w-10 h-10 relative bg-transparent border-none outline-none flex flex-col justify-around p-2 z-50`}
+          className={`w-10 h-10 relative bg-transparent border-none outline-hidden flex flex-col justify-around p-2 z-50`}
           onClick={toggleMobileMenu}>
           {/* Add 3 spans to form a Menu, then make the middle one disppear when clicked and change location of the first and last to form X */}
           {Array.from({ length: 3 }, (_, index) => (
